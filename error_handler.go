@@ -2,7 +2,7 @@ package base
 
 import "log"
 
-func handle(err error, customMsg string) {
+func Handle(err error, customMsg string) {
 	if err != nil {
 		if customMsg == "" {
 			customMsg = err.Error()
