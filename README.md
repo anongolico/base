@@ -31,7 +31,7 @@ Actualmente soporta:
 ### Eres un inútil, OP, te falta agregar X campo
 Clona el repo
 ```
-git clone git@github.com:anongolico/base.git
+git clone https://github.com/anongolico/base.git
 ```
 Y agrega los campos necesarios en cada struct. En este mismo repo hay un archivo `ejemplo.json` para ver la estructura de la info que quieras parsear.
 
