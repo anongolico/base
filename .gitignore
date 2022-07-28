@@ -16,3 +16,6 @@
 
 # Access Cookie
 .accessCookie
+
+# IDE folder
+.idea

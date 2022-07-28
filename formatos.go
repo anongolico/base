@@ -24,7 +24,7 @@ func ScanFormats(r *Rouz) string {
 		}
 
 		_, format, _ := strings.Cut(v.Media.Url, ".")
-		Formats[format] = append(Formats[format], BaseMediaUrl+v.Media.Url)
+		Formats[format] = append(Formats[format], v.Media.Url)
 		commentsWithAttachment++
 	}
 
