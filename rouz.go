@@ -14,6 +14,8 @@ var (
 	RouzId string
 )
 
+const MaxResponseSize = 512 * 8192
+
 type Rouz struct {
 	Id          string       `json:"id"`
 	CreadoEn    time.Time    `json:"creacion"`
@@ -52,10 +54,10 @@ func GetRouz(id string) []byte {
 	defer response.Body.Close()
 
 	// Mordekai pégate un tiro, con tu jodita de las rouzcoins hiciste todas las respuestas más pesadas
-	const maxCapacity = 512 * 2048
-	buf := make([]byte, maxCapacity)
+
+	buf := make([]byte, MaxResponseSize)
 	scanner := bufio.NewScanner(response.Body)
-	scanner.Buffer(buf, maxCapacity)
+	scanner.Buffer(buf, MaxResponseSize)
 
 	var bodyData []byte
 	for scanner.Scan() {
