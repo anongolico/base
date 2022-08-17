@@ -5,9 +5,8 @@ import (
 )
 
 const (
-	BaseUrl        = "https://rouzed.one/Hilo/"
-	BaseMediaUrl   = "https://rouzed.one/Media/"
-	AuthCookieFile = ".accessCookie"
+	BaseUrl      = "https://rouzed.one/Hilo/"
+	BaseMediaUrl = "https://rouzed.one/Media/"
 )
 
 // Client used to make the http requests

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"strings"
 )
 
 var (
@@ -14,6 +15,8 @@ var (
 		HttpOnly: true,
 	}
 )
+
+const AuthCookieFile = "accessCookie.txt"
 
 func SetAccessCookieValue(v string) {
 	AccessCookie.Value = v
@@ -28,21 +31,24 @@ func ReadAuthFile() {
 	content, err := os.ReadFile(AuthCookieFile)
 	Handle(err, "error al leer archivo de credenciales")
 
+	contentString := string(content)
+	contentString = strings.TrimSpace(contentString)
+
 	// TODO: do something if file exists and it's empty
 
-	SetAccessCookieValue(string(content))
+	SetAccessCookieValue(contentString)
 }
 
-// createAuthFile reads the cookie from stdin and saves it to a new .accessCookie file
+// createAuthFile reads the cookie from stdin and saves it to a new accessCookie.txt file
 func createAuthFile() {
 	f, err := os.Create(AuthCookieFile)
-	Handle(err, "error al crear archivo de credenciales")
+	Handle(err, "Error al crear archivo de credenciales")
 	defer f.Close()
 
-	fmt.Println("Pega el valor de la cookie '.AspNetCore.Identity.Application' (Ctrl+Mayus+V):")
+	fmt.Println("Pega el valor de la cookie '.AspNetCore.Identity.Application':")
 	var s string
 	_, err = fmt.Scan(&s)
-	Handle(err, "error al leer entrada de usuario")
+	Handle(err, "Error al leer entrada de usuario")
 	_, err = f.Write([]byte(s))
-	Handle(err, "error al escribir contenido de archivo")
+	Handle(err, "Error al escribir contenido de archivo")
 }
