@@ -1,3 +1,8 @@
+# REPO ANTIGUO
+Ya no hace falta usar esta base para armar un scraper. en la nueva versión se puede modificar el dominio del sitio directamente con un archivo yaml. ver
+[https://github.com/anongolico/zcrapper]
+
+
 # Base
 
 Módulo para modelar la información que devuelve la página.\
